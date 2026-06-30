@@ -154,6 +154,20 @@
             .nav-buttons { flex-direction: column; gap: 12px; }
             .btn-nav { text-align: center; }
         }
+         * {
+        -webkit-tap-highlight-color: transparent !important;
+        -webkit-touch-callout: none !important;
+        outline: none !important;
+    }
+    a, button, input, .character-card, .btn-share, .btn-nav, .top-menu a {
+        -webkit-tap-highlight-color: transparent !important;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+    input:focus, textarea:focus, button:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
     </style>
 </head>
 <body>
