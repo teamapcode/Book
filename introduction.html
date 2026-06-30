@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقدمه - تاریخ جهان</title>
+    <link rel="icon" type="image/jpg" href="favicon.jpg">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'IRANSans', 'Tahoma', sans-serif;
+            background-color: #f5f0ea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .intro-page {
+            max-width: 700px;
+            width: 100%;
+            background: #fcf9f5;
+            padding: 55px 60px;
+            border-radius: 8px;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.08);
+            border: 1px solid #e8dfd6;
+            color: #2c241e;
+        }
+        .top-menu {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 8px 0 12px;
+            border-bottom: 2px solid #e8dfd6;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .top-menu a {
+            color: #4a3528;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 30px;
+            background: #f5edd6;
+            transition: 0.3s;
+            border: 2px solid transparent;
+            white-space: nowrap;
+        }
+        .top-menu a:hover {
+            background: #ecd9a8;
+            border-color: #d4a84a;
+        }
+        .top-menu a.active {
+            background: #e8c86a;
+            border-color: #c49a2a;
+            color: #1f1610;
+        }
+
+        .intro-title {
+            font-size: 2.4rem;
+            font-weight: 800;
+            text-align: center;
+            color: #1f1610;
+            font-family: 'B Nazanin', 'BTitr', serif;
+            margin-bottom: 6px;
+            letter-spacing: 2px;
+        }
+        .intro-sub {
+            text-align: center;
+            color: #7a6b60;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e8dfd6;
+            padding-bottom: 20px;
+        }
+        .intro-text {
+            font-size: 1.05rem;
+            line-height: 2.4;
+            text-align: justify;
+            color: #2c241e;
+        }
+        .intro-text p {
+            margin-bottom: 22px;
+        }
+        .intro-text p:first-of-type::first-letter {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #b8956a;
+            float: right;
+            margin-left: 6px;
+            line-height: 1;
+            font-family: 'B Nazanin', 'BTitr', serif;
+        }
+        .highlight-quote {
+            font-size: 1.15rem;
+            color: #4a3528;
+            padding: 20px 25px;
+            margin: 20px 0 25px;
+            border-right: 4px solid #b8956a;
+            background: #f5f0ea;
+            border-radius: 4px;
+            font-weight: 500;
+            line-height: 2.2;
+        }
+        .highlight-quote::before {
+            content: "❝ ";
+            color: #b8956a;
+            font-size: 1.5rem;
+        }
+        .highlight-quote::after {
+            content: " ❞";
+            color: #b8956a;
+            font-size: 1.5rem;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid #e8dfd6;
+        }
+        .btn-nav {
+            padding: 10px 28px;
+            background: #2c241e;
+            color: #f5eee7;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .btn-nav:hover {
+            background: #4a3528;
+            transform: scale(1.02);
+        }
+        .btn-nav.prev {
+            background: transparent;
+            color: #4a3528;
+            border: 2px solid #d5c9be;
+        }
+        .btn-nav.prev:hover {
+            background: #d5c9be;
+        }
+
+        @media (max-width: 600px) {
+            .intro-page { padding: 30px 22px; }
+            .intro-title { font-size: 1.8rem; }
+            .intro-text { font-size: 0.95rem; line-height: 2.2; }
+            .intro-text p:first-of-type::first-letter { font-size: 2.5rem; }
+            .highlight-quote { font-size: 1rem; padding: 15px 18px; }
+            .top-menu a { font-size: 0.7rem; padding: 4px 10px; }
+            .nav-buttons { flex-direction: column; gap: 12px; }
+            .btn-nav { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<div class="intro-page">
+    <div class="top-menu">
+        <a href="cover.html">📖 جلد</a>
+        <a href="copyright.html">© حقوق</a>
+        <a href="toc.html">📑 فهرست</a>
+        <a href="introduction.html" class="active">📝 مقدمه</a>
+        <a href="about-book.html">📘 درباره اثر</a>
+        <a href="book.html">📚 متن کتاب</a>
+        <a href="author.html">👤 نویسنده</a>
+        <a href="final-cover.html">🔮 افق فردا (جلد پایانی)</a>
+        <a href="download.html">📥 دانلود</a>
+    </div>
+
+    <h1 class="intro-title">مقدمه</h1>
+    <p class="intro-sub">تاریخ جهان · از سپیده‌دم تا افق‌های دور</p>
+
+    <div class="intro-text">
+        <p>
+            ما در لحظه‌ای ایستاده‌ایم که شاید هیچ‌گاه تکرار نشود. ما در میانه یک داستان ایستاده‌ایم؛ داستانی که از نخستین جرقه در تاریکی مطلق آغاز شد و اکنون به مرزی رسیده که در آن، مرز میان گوشت و پوست و میان سیلیکون و کد، در حال محو شدن است.
+        </p>
+        <p>
+            تاریخ، تنها مجموعه‌ای از سال‌ها و اسامی نیست. تاریخ، داستان تلاش بی‌پایان موجودی است که می‌خواست از محدودیت‌های طبیعت فراتر رود. از زمانی که نخستین انسان، سنگ را به ابزار تبدیل کرد تا زمانی که امروز ما، با ابزارهایی از جنس نور و داده، جهان را بازتعریف می‌کنیم، یک رشته ممتد وجود دارد: میل به بقا و اشتیاق به دانستن.
+        </p>
+        <div class="highlight-quote">
+            این کتاب، سفری است. سفری به عقب، برای درک اینکه چگونه از غارهای سرد به آسمان‌خراش‌های فولادی رسیدیم. و سفری به جلو، برای نگاه کردن به افقی که هنوز کسی آن را ندیده است.
+        </div>
+        <p>
+            ما درباره ۲۰۰ سال آینده صحبت می‌کنیم؛ دورانی که شاید بشر یا به اوج شکوه خود برسد و ستاره‌ها را لمس کند، یا در پیچ‌وخم‌های تکنولوژی و تغییرات اقلیمی، معنای انسانیت را از دست بدهد.
+        </p>
+        <p style="font-style: italic; color: #7a6b60; text-align: center; margin-top: 10px;">
+            آماده باشید. ما قرار است از سپیده‌دم تاریخ عبور کنیم و به سوی آینده‌ای سفر کنیم که هنوز در رحم احتمالات است.
+        </p>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="toc.html" class="btn-nav prev">← فهرست مطالب</a>
+        <a href="about-book.html" class="btn-nav">شروع تاریخ →</a>
+    </div>
+</div>
+<script src="favicon.js"></script>
+<button id="musicToggle" style="position:fixed; bottom:30px; right:30px; padding:12px 14px; background:#b8956a; color:#1a0f0a; border:3px solid #4a3228; border-radius:50%; cursor:pointer; font-size:1.5rem; z-index:999; box-shadow:0 4px 20px rgba(0,0,0,0.4); transition:0.3s; display:flex; align-items:center; justify-content:center; width:50px; height:50px;">🔊</button>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<style>
+    #musicToggle:hover {
+        transform: scale(1.2);
+        background: #d4b08a;
+        border-color: #6d4c38;
+        box-shadow: 0 6px 30px rgba(184, 149, 106, 0.6);
+    }
+</style>
+
+<script>
+    const btn = document.getElementById('musicToggle');
+    const audio = document.getElementById('bgMusic');
+    let isPlaying = false;
+
+    btn.addEventListener('click', function() {
+        if (isPlaying) {
+            audio.pause();
+            btn.innerHTML = '🔇';
+            isPlaying = false;
+        } else {
+            audio.play();
+            btn.innerHTML = '🔊';
+            isPlaying = true;
+        }
+    });
+
+    document.addEventListener('click', function() {
+        if (!isPlaying) {
+            audio.play();
+            btn.innerHTML = '🔊';
+            isPlaying = true;
+        }
+    }, { once: true });
+</script>
+</body>
+</html>

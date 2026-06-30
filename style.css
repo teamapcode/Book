@@ -1,0 +1,451 @@
+/* ===== استایل‌های پایه ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'IRANSans', 'Tahoma', sans-serif;
+    background-color: #f5f0ea;
+    transition: background-color 0.4s, color 0.4s;
+    min-height: 100vh;
+}
+
+/* ===== حالت روشن (پیش‌فرض) ===== */
+body.light-mode {
+    background-color: #f5f0ea;
+    color: #2c241e;
+}
+
+body.light-mode .book-page,
+body.light-mode .author-page,
+body.light-mode .toc-page,
+body.light-mode .intro-page,
+body.light-mode .about-book,
+body.light-mode .copyright-page,
+body.light-mode .download-page,
+body.light-mode .contact-page,
+body.light-mode .splash-page,
+body.light-mode .error-page {
+    background: #fcf9f5;
+    border-color: #e8dfd6;
+    color: #2c241e;
+}
+
+body.light-mode .top-menu a {
+    background: #f5edd6;
+    color: #4a3528;
+}
+
+body.light-mode .top-menu a.active {
+    background: #e8c86a;
+    border-color: #c49a2a;
+    color: #1f1610;
+}
+
+body.light-mode .top-menu a:hover {
+    background: #ecd9a8;
+    border-color: #d4a84a;
+}
+
+body.light-mode .part-title,
+body.light-mode .chapter-title,
+body.light-mode .section-title,
+body.light-mode .contact-title,
+body.light-mode .download-title,
+body.light-mode .toc-title {
+    color: #1f1610;
+}
+
+body.light-mode .book-text,
+body.light-mode .bio,
+body.light-mode .about-text,
+body.light-mode .intro-text {
+    color: #2c241e;
+}
+
+body.light-mode .sub-title {
+    color: #5a4538;
+}
+
+body.light-mode .divider-line {
+    background: #b8956a;
+}
+
+body.light-mode .quote-in-text {
+    background: #f5f0ea;
+    color: #4a3528;
+}
+
+body.light-mode .highlight-quote {
+    background: #f5f0ea;
+    color: #4a3528;
+}
+
+body.light-mode .copyright-text {
+    color: #3d322b;
+}
+
+body.light-mode .info-block .label {
+    color: #7a6b60;
+}
+
+body.light-mode .btn-nav {
+    background: #2c241e;
+    color: #f5eee7;
+}
+
+body.light-mode .btn-nav.prev {
+    background: transparent;
+    color: #4a3528;
+    border-color: #d5c9be;
+}
+
+body.light-mode .btn-nav.prev:hover {
+    background: #d5c9be;
+}
+
+body.light-mode .btn-back {
+    color: #4a3528;
+    border-color: #d5c9be;
+}
+
+body.light-mode .btn-back:hover {
+    background: #d5c9be;
+}
+
+body.light-mode .message-box {
+    background: #f5edd6;
+    border-color: #e8d5a0;
+}
+
+body.light-mode .message-box .msg-text {
+    color: #4a3528;
+}
+
+body.light-mode .form-group label {
+    color: #4a3528;
+}
+
+body.light-mode .form-group input,
+body.light-mode .form-group textarea {
+    background: #fcf9f5;
+    border-color: #e8dfd6;
+    color: #2c241e;
+}
+
+body.light-mode .form-group input:focus,
+body.light-mode .form-group textarea:focus {
+    border-color: #b8956a;
+}
+
+body.light-mode .loading-text,
+body.light-mode .file-info {
+    color: #7a6b60;
+}
+
+body.light-mode .characters-section {
+    background: #f5edd6;
+    border-color: #e8d5a0;
+}
+
+body.light-mode .character-card {
+    background: #fcf9f5;
+    color: #4a3528;
+    border-color: #b8956a;
+}
+
+body.light-mode .character-card:hover {
+    background: #b8956a;
+    color: #1a0f0a;
+}
+
+body.light-mode .timeline-section {
+    background: #f5edd6;
+    border-color: #e8d5a0;
+}
+
+body.light-mode .timeline-desc {
+    color: #4a3528;
+}
+
+body.light-mode .share-quote {
+    background: #fcf9f5;
+}
+
+body.light-mode .share-quote .quote-text {
+    color: #4a3528;
+}
+
+body.light-mode .bibliography {
+    border-color: #e8dfd6;
+}
+
+body.light-mode .bibliography .b-group ul li {
+    color: #3d322b;
+}
+
+body.light-mode .search-box {
+    background: #f5edd6;
+    border-color: #e8d5a0;
+}
+
+body.light-mode .search-box input {
+    background: #fff;
+    color: #2c241e;
+    border-color: #b8956a;
+}
+
+body.light-mode #searchResults {
+    background: #fcf9f5;
+    border-color: #b8956a;
+}
+
+body.light-mode #searchResults .result-item {
+    color: #2c241e;
+    border-color: #e8dfd6;
+}
+
+/* ===== حالت تاریک ===== */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #e0d5c8;
+}
+
+body.dark-mode .book-page,
+body.dark-mode .author-page,
+body.dark-mode .toc-page,
+body.dark-mode .intro-page,
+body.dark-mode .about-book,
+body.dark-mode .copyright-page,
+body.dark-mode .download-page,
+body.dark-mode .contact-page,
+body.dark-mode .splash-page,
+body.dark-mode .error-page {
+    background: #2c2c2c;
+    border-color: #444;
+    color: #e0d5c8;
+}
+
+body.dark-mode .top-menu {
+    border-color: #444;
+}
+
+body.dark-mode .top-menu a {
+    background: #3d3d3d;
+    color: #e0d5c8;
+}
+
+body.dark-mode .top-menu a.active {
+    background: #b8956a;
+    color: #1a0f0a;
+    border-color: #c49a2a;
+}
+
+body.dark-mode .top-menu a:hover {
+    background: #555;
+    border-color: #666;
+}
+
+body.dark-mode .part-title,
+body.dark-mode .chapter-title,
+body.dark-mode .section-title,
+body.dark-mode .contact-title,
+body.dark-mode .download-title,
+body.dark-mode .toc-title {
+    color: #f5eee7;
+}
+
+body.dark-mode .book-text,
+body.dark-mode .bio,
+body.dark-mode .about-text,
+body.dark-mode .intro-text {
+    color: #d0c5b8;
+}
+
+body.dark-mode .sub-title {
+    color: #b8956a;
+}
+
+body.dark-mode .divider-line {
+    background: #b8956a;
+}
+
+body.dark-mode .quote-in-text {
+    background: #3d3d3d;
+    color: #e0d5c8;
+}
+
+body.dark-mode .highlight-quote {
+    background: #3d3d3d;
+    color: #e0d5c8;
+}
+
+body.dark-mode .copyright-text {
+    color: #d0c5b8;
+}
+
+body.dark-mode .info-block .label {
+    color: #999;
+}
+
+body.dark-mode .btn-nav {
+    background: #b8956a;
+    color: #1a0f0a;
+}
+
+body.dark-mode .btn-nav.prev {
+    background: transparent;
+    color: #e0d5c8;
+    border-color: #666;
+}
+
+body.dark-mode .btn-nav.prev:hover {
+    background: #444;
+}
+
+body.dark-mode .btn-back {
+    color: #e0d5c8;
+    border-color: #666;
+}
+
+body.dark-mode .btn-back:hover {
+    background: #444;
+}
+
+body.dark-mode .message-box {
+    background: #3d3d3d;
+    border-color: #b8956a;
+}
+
+body.dark-mode .message-box .msg-text {
+    color: #e0d5c8;
+}
+
+body.dark-mode .form-group label {
+    color: #e0d5c8;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background: #3d3d3d;
+    border-color: #666;
+    color: #e0d5c8;
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus {
+    border-color: #b8956a;
+}
+
+body.dark-mode .loading-text,
+body.dark-mode .file-info {
+    color: #999;
+}
+
+body.dark-mode .characters-section {
+    background: #3d3d3d;
+    border-color: #b8956a;
+}
+
+body.dark-mode .character-card {
+    background: #2c2c2c;
+    color: #e0d5c8;
+    border-color: #666;
+}
+
+body.dark-mode .character-card:hover {
+    background: #b8956a;
+    color: #1a0f0a;
+}
+
+body.dark-mode .timeline-section {
+    background: #3d3d3d;
+    border-color: #b8956a;
+}
+
+body.dark-mode .timeline-desc {
+    color: #d0c5b8;
+}
+
+body.dark-mode .share-quote {
+    background: #3d3d3d;
+}
+
+body.dark-mode .share-quote .quote-text {
+    color: #e0d5c8;
+}
+
+body.dark-mode .bibliography {
+    border-color: #444;
+}
+
+body.dark-mode .bibliography .b-group ul li {
+    color: #d0c5b8;
+}
+
+body.dark-mode .search-box {
+    background: #3d3d3d;
+    border-color: #b8956a;
+}
+
+body.dark-mode .search-box input {
+    background: #1a1a1a;
+    color: #e0d5c8;
+    border-color: #666;
+}
+
+body.dark-mode #searchResults {
+    background: #3d3d3d;
+    border-color: #b8956a;
+}
+
+body.dark-mode #searchResults .result-item {
+    color: #e0d5c8;
+    border-color: #555;
+}
+
+body.dark-mode .book-image .caption {
+    color: #999;
+}
+
+body.dark-mode .progress-bar {
+    background: #2c2c2c;
+    border-color: #444;
+}
+
+body.dark-mode .progress-top .label {
+    color: #e0d5c8;
+}
+
+body.dark-mode .progress-track {
+    background: #444;
+}
+
+/* ===== دکمه تغییر تم ===== */
+#themeToggle {
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+    padding: 12px 16px;
+    background: #4a3528;
+    color: #f5eee7;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: 0.3s;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#themeToggle:hover {
+    transform: scale(1.1);
+}
+
+body.dark-mode #themeToggle {
+    background: #b8956a;
+    color: #1a0f0a;
+}

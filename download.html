@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دانلود کتاب - تاریخ جهان</title>
+    <link rel="icon" type="image/jpg" href="favicon.jpg">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'IRANSans', 'Tahoma', sans-serif;
+            background: linear-gradient(145deg, #1a0f0a, #2c1810);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 30px;
+        }
+        .download-page {
+            max-width: 550px;
+            width: 100%;
+            background: #fcf9f5;
+            padding: 50px 40px;
+            border-radius: 12px;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.3);
+            border: 1px solid #e8dfd6;
+            text-align: center;
+        }
+        .top-menu {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 8px 0 12px;
+            border-bottom: 2px solid #e8dfd6;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .top-menu a {
+            color: #4a3528;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 30px;
+            background: #f5edd6;
+            transition: 0.3s;
+            border: 2px solid transparent;
+            white-space: nowrap;
+        }
+        .top-menu a:hover {
+            background: #ecd9a8;
+            border-color: #d4a84a;
+        }
+        .top-menu a.active {
+            background: #e8c86a;
+            border-color: #c49a2a;
+            color: #1f1610;
+        }
+        .download-icon {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+        .download-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1f1610;
+            font-family: 'B Nazanin', 'BTitr', serif;
+            margin-bottom: 5px;
+        }
+        .download-sub {
+            color: #7a6b60;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        .divider-line {
+            width: 60px;
+            height: 2px;
+            background: #b8956a;
+            margin: 0 auto 20px;
+            opacity: 0.5;
+        }
+        .download-text {
+            color: #2c241e;
+            font-size: 1rem;
+            line-height: 2.2;
+            margin-bottom: 25px;
+        }
+        .btn-download {
+            display: inline-block;
+            padding: 16px 50px;
+            background: #b8956a;
+            color: #1a0f0a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(184, 149, 106, 0.3);
+            text-align: center;
+        }
+        .btn-download:hover {
+            background: #d4b08a;
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(184, 149, 106, 0.5);
+        }
+        .btn-download .file-size {
+            display: block;
+            font-size: 0.6rem;
+            font-weight: 300;
+            opacity: 0.7;
+            margin-top: 2px;
+        }
+        .file-info {
+            color: #7a6b60;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+        .btn-back {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: transparent;
+            color: #4a3528;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            border: 2px solid #d5c9be;
+        }
+        .btn-back:hover {
+            background: #d5c9be;
+        }
+        @media (max-width: 600px) {
+            .download-page { padding: 30px 20px; }
+            .download-title { font-size: 1.6rem; }
+            .top-menu a { font-size: 0.65rem; padding: 4px 8px; }
+            .btn-download { padding: 14px 35px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="download-page">
+    <div class="top-menu">
+        <a href="cover.html">📖 جلد</a>
+        <a href="copyright.html">© حقوق</a>
+        <a href="toc.html">📑 فهرست</a>
+        <a href="introduction.html">📝 مقدمه</a>
+        <a href="about-book.html">📘 درباره اثر</a>
+        <a href="book.html">📚 متن کتاب</a>
+        <a href="author.html">👤 نویسنده</a>
+        <a href="final-cover.html">🔮 افق فردا (جلد پایانی)</a>
+        <a href="download.html" class="active">📥 دانلود</a>
+    </div>
+
+    <span class="download-icon">📥</span>
+    <h1 class="download-title">دانلود کتاب</h1>
+    <p class="download-sub">تاریخ جهان · از سپیده‌دم تا افق‌های دور</p>
+    <div class="divider-line"></div>
+
+    <p class="download-text">
+        نسخه الکترونیکی کتاب را به صورت PDF دانلود کنید.<br>
+        همراه همیشگی شما در سفر به اعماق تاریخ.
+    </p>
+
+    <a href="book.pdf" download="تاریخ_جهان_اشکان_پیمان.pdf" class="btn-download">
+        📥 دانلود کتاب (PDF)
+        <span class="file-size">۴ KB</span>
+    </a>
+
+    <p class="file-info">📄 فرمت: PDF · حجم: ۴ KB</p>
+
+    <a href="book.html" class="btn-back">↺ بازگشت به ابتدای کتاب</a>
+</div>
+<button id="musicToggle" style="position:fixed; bottom:30px; right:30px; padding:12px 14px; background:#b8956a; color:#1a0f0a; border:3px solid #4a3228; border-radius:50%; cursor:pointer; font-size:1.5rem; z-index:999; box-shadow:0 4px 20px rgba(0,0,0,0.4); transition:0.3s; display:flex; align-items:center; justify-content:center; width:50px; height:50px;">🔊</button>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<style>
+    #musicToggle:hover {
+        transform: scale(1.2);
+        background: #d4b08a;
+        border-color: #6d4c38;
+        box-shadow: 0 6px 30px rgba(184, 149, 106, 0.6);
+    }
+</style>
+
+<script>
+    const btn = document.getElementById('musicToggle');
+    const audio = document.getElementById('bgMusic');
+    let isPlaying = false;
+
+    btn.addEventListener('click', function() {
+        if (isPlaying) {
+            audio.pause();
+            btn.innerHTML = '🔇';
+            isPlaying = false;
+        } else {
+            audio.play();
+            btn.innerHTML = '🔊';
+            isPlaying = true;
+        }
+    });
+
+    document.addEventListener('click', function() {
+        if (!isPlaying) {
+            audio.play();
+            btn.innerHTML = '🔊';
+            isPlaying = true;
+        }
+    }, { once: true });
+</script>
+</body>
+</html>

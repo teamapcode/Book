@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تاریخ جهان</title>
+    
+    <!-- آیکون تب مرورگر -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'IRANSans', 'Tahoma', sans-serif;
+            background: linear-gradient(145deg, #1a0f0a, #2c1810);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 30px;
+            overflow: hidden;
+        }
+        
+        .splash {
+            max-width: 650px;
+            width: 100%;
+            text-align: center;
+            padding: 40px 30px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .splash-icon {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+        
+        .splash-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #f5e6d3;
+            font-family: 'B Nazanin', 'BTitr', serif;
+            margin-bottom: 6px;
+            text-shadow: 0 4px 20px rgba(184, 149, 106, 0.2);
+        }
+        
+        .splash-sub {
+            font-size: 1rem;
+            color: #c4b5a5;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+        
+        .divider-line {
+            width: 80px;
+            height: 2px;
+            background: #b8956a;
+            margin: 0 auto 30px;
+            opacity: 0.5;
+        }
+        
+        .splash-quote {
+            font-size: 1.15rem;
+            line-height: 2.2;
+            color: #dccfc4;
+            text-align: justify;
+            padding: 0 10px;
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+        
+        .splash-quote::before {
+            content: "❝ ";
+            color: #b8956a;
+            font-size: 1.5rem;
+        }
+        
+        .splash-quote::after {
+            content: " ❞";
+            color: #b8956a;
+            font-size: 1.5rem;
+        }
+        
+        .loading-wrapper {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+        
+        .loading-bar {
+            width: 100%;
+            height: 3px;
+            background: #3d2c22;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .loading-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #b8956a, #d4b08a);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+        
+        .loading-text {
+            color: #7a6b60;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            letter-spacing: 2px;
+            font-family: 'Georgia', serif;
+        }
+        
+        @media (max-width: 600px) {
+            .splash { padding: 30px 18px; }
+            .splash-title { font-size: 2rem; }
+            .splash-quote { font-size: 1rem; line-height: 2; padding: 0 5px; }
+            .splash-icon { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="splash">
+    <span class="splash-icon">📜</span>
+    
+    <h1 class="splash-title">تاریخ جهان</h1>
+    <p class="splash-sub">از سپیده‌دم تا افق‌های دور</p>
+    
+    <div class="divider-line"></div>
+    
+    <p class="splash-quote">
+        تاریخ، سفرِ بی‌پایانِ آگاهیِ بشر است؛ از اولین جرقه در تاریکیِ آغاز، تا بی‌کرانگیِ افق‌های آینده.
+    </p>
+    
+    <div class="loading-wrapper">
+        <div class="loading-bar">
+            <div class="loading-bar-fill" id="loadingFill"></div>
+        </div>
+        <div class="loading-text" id="loadingText">۰%</div>
+    </div>
+</div>
+
+<script>
+    const loadingFill = document.getElementById('loadingFill');
+    const loadingText = document.getElementById('loadingText');
+    
+    let progress = 0;
+    const duration = 4000;
+    const interval = 50;
+    const step = (interval / duration) * 100;
+    
+    const timer = setInterval(function() {
+        progress += step;
+        
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(timer);
+            
+            setTimeout(function() {
+                window.location.href = 'cover.html';
+            }, 400);
+        }
+        
+        loadingFill.style.width = progress + '%';
+        loadingText.textContent = Math.floor(progress) + '%';
+        
+    }, interval);
+</script>
+<button id="musicToggle" style="position:fixed; bottom:30px; right:30px; padding:12px 14px; background:#b8956a; color:#1a0f0a; border:3px solid #4a3228; border-radius:50%; cursor:pointer; font-size:1.5rem; z-index:999; box-shadow:0 4px 20px rgba(0,0,0,0.4); transition:0.3s; display:flex; align-items:center; justify-content:center; width:50px; height:50px;">🔊</button>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<style>
+    #musicToggle:hover {
+        transform: scale(1.2);
+        background: #d4b08a;
+        border-color: #6d4c38;
+        box-shadow: 0 6px 30px rgba(184, 149, 106, 0.6);
+    }
+</style>
+
+<script>
+    const btn = document.getElementById('musicToggle');
+    const audio = document.getElementById('bgMusic');
+    let isPlaying = false;
+
+    btn.addEventListener('click', function() {
+        if (isPlaying) {
+            audio.pause();
+            btn.innerHTML = '🔇';
+            isPlaying = false;
+        } else {
+            audio.play();
+            btn.innerHTML = '🔊';
+            isPlaying = true;
+        }
+    });
+
+    document.addEventListener('click', function() {
+        if (!isPlaying) {
+            audio.play();
+            btn.innerHTML = '🔊';
+            isPlaying = true;
+        }
+    }, { once: true });
+</script>
+</body>
+</html>

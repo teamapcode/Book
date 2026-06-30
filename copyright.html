@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه حقوق - تاریخ جهان</title>
+    <link rel="icon" type="image/jpg" href="favicon.jpg">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'IRANSans', 'Tahoma', sans-serif;
+            background-color: #f5f0ea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .copyright-page {
+            max-width: 550px;
+            width: 100%;
+            background: #fcf9f5;
+            padding: 50px 45px;
+            border-radius: 8px;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.1);
+            border: 1px solid #e8dfd6;
+            color: #2c241e;
+        }
+        .top-menu {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 8px 0 12px;
+            border-bottom: 2px solid #e8dfd6;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .top-menu a {
+            color: #4a3528;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 30px;
+            background: #f5edd6;
+            transition: 0.3s;
+            border: 2px solid transparent;
+            white-space: nowrap;
+        }
+        .top-menu a:hover {
+            background: #ecd9a8;
+            border-color: #d4a84a;
+        }
+        .top-menu a.active {
+            background: #e8c86a;
+            border-color: #c49a2a;
+            color: #1f1610;
+        }
+
+        .book-title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            color: #1f1610;
+            font-family: 'B Nazanin', 'BTitr', serif;
+            margin-bottom: 4px;
+        }
+        .book-title-en {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #7a6b60;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+        .divider-line {
+            width: 60px;
+            height: 2px;
+            background: #b8956a;
+            margin: 0 auto 25px;
+        }
+        .info-block {
+            font-size: 1rem;
+            line-height: 2.4;
+        }
+        .info-block strong { color: #4a3528; font-weight: 700; }
+        .info-block .label {
+            color: #7a6b60;
+            font-weight: 300;
+            display: inline-block;
+            width: 100px;
+        }
+        .copyright-text {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e8dfd6;
+            font-size: 0.95rem;
+            line-height: 2.2;
+            text-align: justify;
+            color: #3d322b;
+        }
+        .isbn {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7a6b60;
+            letter-spacing: 1px;
+            border-top: 1px solid #e8dfd6;
+            padding-top: 18px;
+        }
+        .btn-next {
+            display: block;
+            margin: 30px auto 0;
+            padding: 12px 35px;
+            background: #2c241e;
+            color: #f5eee7;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            max-width: 200px;
+        }
+        .btn-next:hover {
+            background: #4a3528;
+            transform: scale(1.02);
+        }
+        @media (max-width: 500px) {
+            .copyright-page { padding: 30px 20px; }
+            .book-title { font-size: 1.6rem; }
+            .info-block .label { width: 70px; }
+            .top-menu a { font-size: 0.7rem; padding: 4px 10px; }
+        }
+    </style>
+</head>
+<body>
+<div class="copyright-page">
+    <div class="top-menu">
+        <a href="cover.html">📖 جلد</a>
+        <a href="copyright.html" class="active">© حقوق</a>
+        <a href="toc.html">📑 فهرست</a>
+        <a href="introduction.html">📝 مقدمه</a>
+        <a href="about-book.html">📘 درباره اثر</a>
+        <a href="book.html">📚 متن کتاب</a>
+        <a href="author.html">👤 نویسنده</a>
+        <a href="final-cover.html">🔮 افق فردا (جلد پایانی)</a>
+        <a href="download.html">📥 دانلود</a>
+    </div>
+
+    <h1 class="book-title">تاریخ جهان</h1>
+    <p class="book-title-en">World History from the Beginning to the Future</p>
+    <div class="divider-line"></div>
+    <div class="info-block">
+        <p><span class="label">نویسنده:</span> <strong>اشکان پیمان</strong></p>
+        <p><span class="label">هم‌نویس:</span> <strong>سروش پیمان</strong></p>
+        <p><span class="label">انتشار:</span> سال ۲۰۲۶</p>
+        <p><span class="label">نسخه:</span> نخستین ویرایش (دیجیتال)</p>
+    </div>
+    <div class="copyright-text">
+        <strong>حقوق کپی‌رایت:</strong><br>
+        تمامی حقوق این اثر برای اشکان پیمان محفوظ است. هیچ بخشی از این کتاب نباید به هر شکلی (الکترونیکی، مکانیکی، ضبط شده یا سایر روش‌ها) بدون اجازه کتبی نویسنده بازنشر، کپی یا توزیع شود. این اثر ترکیبی از تحلیل‌های تاریخی، آینده‌پژوهی و سناریونویسی است و هدف آن ایجاد یک دیدگاه جامع از مسیر تکامل بشریت است.
+    </div>
+    <div class="isbn">ISBN: 978-1-2345-6789-0</div>
+    <a href="toc.html" class="btn-next">شروع مطالعه 📖</a>
+</div>
+<script src="favicon.js"></script>
+<button id="musicToggle" style="position:fixed; bottom:30px; right:30px; padding:12px 14px; background:#b8956a; color:#1a0f0a; border:3px solid #4a3228; border-radius:50%; cursor:pointer; font-size:1.5rem; z-index:999; box-shadow:0 4px 20px rgba(0,0,0,0.4); transition:0.3s; display:flex; align-items:center; justify-content:center; width:50px; height:50px;">🔊</button>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<style>
+    #musicToggle:hover {
+        transform: scale(1.2);
+        background: #d4b08a;
+        border-color: #6d4c38;
+        box-shadow: 0 6px 30px rgba(184, 149, 106, 0.6);
+    }
+</style>
+
+<script>
+    const btn = document.getElementById('musicToggle');
+    const audio = document.getElementById('bgMusic');
+    let isPlaying = false;
+
+    btn.addEventListener('click', function() {
+        if (isPlaying) {
+            audio.pause();
+            btn.innerHTML = '🔇';
+            isPlaying = false;
+        } else {
+            audio.play();
+            btn.innerHTML = '🔊';
+            isPlaying = true;
+        }
+    });
+
+    document.addEventListener('click', function() {
+        if (!isPlaying) {
+            audio.play();
+            btn.innerHTML = '🔊';
+            isPlaying = true;
+        }
+    }, { once: true });
+</script>
+</body>
+</html>

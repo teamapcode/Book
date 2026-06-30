@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جلد کتاب - تاریخ جهان</title>
+    <link rel="icon" type="image/jpg" href="favicon.jpg">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'IRANSans', 'Tahoma', sans-serif;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .cover {
+            max-width: 500px;
+            width: 100%;
+            background: linear-gradient(145deg, #2c1810, #1a0f0a);
+            border-radius: 18px;
+            padding: 40px 35px 45px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 0 2px #4a3228 inset;
+            text-align: center;
+            color: #f5eee7;
+        }
+        .author-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #b8956a;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            margin-bottom: 22px;
+        }
+        .title-fa {
+            font-size: 2.4rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #f5e6d3;
+            text-shadow: 0 4px 15px rgba(184, 149, 106, 0.3);
+            line-height: 1.4;
+            margin-bottom: 8px;
+            font-family: 'B Nazanin', 'BTitr', 'IRANSans', serif;
+        }
+        .title-en {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #c4b5a5;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-style: italic;
+        }
+        .divider {
+            width: 70px;
+            height: 2px;
+            background: #b8956a;
+            margin: 15px auto;
+            opacity: 0.6;
+        }
+        .author-name {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #dccfc4;
+            letter-spacing: 1px;
+        }
+        .author-name span {
+            color: #b8956a;
+            font-weight: 700;
+        }
+        .meta {
+            margin-top: 28px;
+            font-size: 0.85rem;
+            color: #a09080;
+            border-top: 1px solid #3d2c22;
+            padding-top: 20px;
+        }
+        .meta p { margin: 4px 0; }
+        .btn-enter {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 40px;
+            background: #b8956a;
+            color: #1a0f0a;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 40px;
+            font-size: 1rem;
+            transition: 0.3s;
+            letter-spacing: 1px;
+        }
+        .btn-enter:hover {
+            background: #d4b08a;
+            transform: scale(1.04);
+            box-shadow: 0 8px 25px rgba(184, 149, 106, 0.3);
+        }
+        @media (max-width: 500px) {
+            .cover { padding: 30px 20px 35px; }
+            .title-fa { font-size: 1.8rem; }
+            .author-img { width: 100px; height: 100px; }
+        }
+    </style>
+</head>
+<body>
+<div class="cover">
+    <img src="your-photo.jpg" alt="عکس اشکان پیمان" class="author-img">
+    <h1 class="title-fa">تاریخ جهان</h1>
+    <p class="title-en">World History from the Beginning to the Future</p>
+    <div class="divider"></div>
+    <p class="author-name">نویسنده: <span>اشکان پیمان</span></p>
+    <p class="author-name" style="font-size: 0.95rem; color: #a09080;">ویراستار: سروش پیمان</p>
+    <div class="meta"><p>انتشارات · ۲۰۲۶</p></div>
+    <a href="copyright.html" class="btn-enter">✦ ورود به کتاب ✦</a>
+</div>
+
+<button id="musicToggle" style="position:fixed; bottom:30px; right:30px; padding:12px 14px; background:#b8956a; color:#1a0f0a; border:3px solid #4a3228; border-radius:50%; cursor:pointer; font-size:1.5rem; z-index:999; box-shadow:0 4px 20px rgba(0,0,0,0.4); transition:0.3s; display:flex; align-items:center; justify-content:center; width:50px; height:50px;">🔊</button>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<style>
+    #musicToggle:hover {
+        transform: scale(1.2);
+        background: #d4b08a;
+        border-color: #6d4c38;
+        box-shadow: 0 6px 30px rgba(184, 149, 106, 0.6);
+    }
+</style>
+
+<script>
+    const btn = document.getElementById('musicToggle');
+    const audio = document.getElementById('bgMusic');
+    let isPlaying = false;
+
+    btn.addEventListener('click', function() {
+        if (isPlaying) {
+            audio.pause();
+            btn.innerHTML = '🔇';
+            isPlaying = false;
+        } else {
+            audio.play();
+            btn.innerHTML = '🔊';
+            isPlaying = true;
+        }
+    });
+
+    document.addEventListener('click', function() {
+        if (!isPlaying) {
+            audio.play();
+            btn.innerHTML = '🔊';
+            isPlaying = true;
+        }
+    }, { once: true });
+</script>
+</body>
+</html>

@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متن کتاب - تاریخ جهان</title>
+    
+    <!-- آیکون تب با فرمت JPG -->
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+    
+    <!-- استایل مشترک -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'IRANSans', 'Tahoma', sans-serif;
+            background-color: #f5f0ea;
+            display: flex;
+            justify-content: center;
+            padding: 30px 20px;
+            transition: background-color 0.4s, color 0.4s;
+        }
+        .book-page {
+            max-width: 750px;
+            width: 100%;
+            background: #fcf9f5;
+            padding: 55px 60px;
+            border-radius: 8px;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.08);
+            border: 1px solid #e8dfd6;
+            color: #2c241e;
+            transition: background-color 0.4s, color 0.4s, border-color 0.4s;
+        }
+
+        /* ===== نوار پیشرفت (Sticky) ===== */
+        .progress-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #fcf9f5;
+            padding: 12px 20px;
+            border-bottom: 2px solid #e8dfd6;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            margin: -55px -60px 25px -60px;
+            border-radius: 8px 8px 0 0;
+            transition: background-color 0.4s, border-color 0.4s;
+        }
+        .progress-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .progress-top .label {
+            font-weight: 700;
+            color: #4a3528;
+            font-size: 0.9rem;
+        }
+        .progress-top .percent {
+            font-weight: 700;
+            color: #b8956a;
+            font-size: 0.9rem;
+        }
+        .progress-track {
+            width: 100%;
+            height: 5px;
+            background: #e8dfd6;
+            border-radius: 10px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #b8956a, #d4b08a);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        /* ===== منو ===== */
+        .top-menu {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 8px 0 12px;
+            border-bottom: 2px solid #e8dfd6;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            transition: border-color 0.4s;
+        }
+        .top-menu a {
+            color: #4a3528;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 30px;
+            background: #f5edd6;
+            transition: 0.3s;
+            border: 2px solid transparent;
+            white-space: nowrap;
+        }
+        .top-menu a:hover {
+            background: #ecd9a8;
+            border-color: #d4a84a;
+        }
+        .top-menu a.active {
+            background: #e8c86a;
+            border-color: #c49a2a;
+            color: #1f1610;
+        }
+
+        /* ===== جستجو ===== */
+        .search-box {
+            text-align: center;
+            margin: 0 0 25px 0;
+            padding: 18px 22px;
+            background: linear-gradient(135deg, #f5edd6, #ede3c8);
+            border-radius: 16px;
+            border: 2px solid #e8d5a0;
+            box-shadow: 0 4px 15px rgba(184, 149, 106, 0.15);
+            transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
+        }
+        .search-box:hover {
+            box-shadow: 0 6px 25px rgba(184, 149, 106, 0.25);
+        }
+        .search-box .search-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+        }
+        .search-box input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 22px;
+            border-radius: 50px;
+            border: 2px solid #b8956a;
+            font-size: 1rem;
+            background: #fff;
+            outline: none;
+            font-family: 'IRANSans', 'Tahoma', sans-serif;
+            transition: 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .search-box input:focus {
+            border-color: #8a6d4a;
+            box-shadow: 0 0 0 4px rgba(184, 149, 106, 0.2), 0 4px 15px rgba(0,0,0,0.08);
+            transform: scale(1.01);
+        }
+        .search-box input::placeholder {
+            color: #b5a898;
+            font-weight: 300;
+        }
+        .search-box .btn-search {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #b8956a, #a8845d);
+            color: #1a0f0a;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'IRANSans', 'Tahoma', sans-serif;
+            box-shadow: 0 4px 15px rgba(184, 149, 106, 0.3);
+            letter-spacing: 0.5px;
+        }
+        .search-box .btn-search:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(184, 149, 106, 0.4);
+            background: linear-gradient(135deg, #c4a07a, #b8956a);
+        }
+        .search-box .btn-search:active {
+            transform: scale(0.96);
+        }
+        .search-box .btn-clear {
+            padding: 12px 25px;
+            background: #d5c9be;
+            color: #4a3528;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'IRANSans', 'Tahoma', sans-serif;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .search-box .btn-clear:hover {
+            background: #c4b5a5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .search-box .btn-clear:active {
+            transform: scale(0.96);
+        }
+        #searchResults {
+            display: none;
+            margin-top: 15px;
+            padding: 15px 20px;
+            background: #fcf9f5;
+            border-radius: 12px;
+            border: 2px solid #b8956a;
+            text-align: right;
+            max-height: 300px;
+            overflow-y: auto;
+            transition: background 0.4s, border-color 0.4s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        #searchResults .result-item {
+            padding: 8px 0;
+            border-bottom: 1px dashed #e8dfd6;
+            color: #2c241e;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        #searchResults .result-item:last-child {
+            border-bottom: none;
+        }
+        .no-result {
+            color: #7a6b60;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1rem;
+        }
+
+        /* هایلایت جستجو - زرد */
+        .highlight-search {
+            background: #ffeb3b !important;
+            color: #1a0f0a !important;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        /* ===== بخش‌ها و فصل‌ها ===== */
+        .part {
+            margin-bottom: 40px;
+        }
+        .part-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #1f1610;
+            text-align: center;
+            font-family: 'B Nazanin', 'BTitr', serif;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #b8956a;
+            letter-spacing: 2px;
+        }
+        .chapter {
+            margin-bottom: 45px;
+        }
+        .chapter-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #4a3528;
+            font-family: 'B Nazanin', 'BTitr', serif;
+            margin-bottom: 12px;
+            padding-right: 14px;
+            border-right: 4px solid #b8956a;
+        }
+        .sub-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #5a4538;
+            margin: 20px 0 10px;
+            padding-right: 10px;
+        }
+        .book-text {
+            font-size: 1.05rem;
+            line-height: 2.4;
+            text-align: justify;
+            color: #2c241e;
+        }
+        .book-text p {
+            margin-bottom: 18px;
+        }
+        .book-text ul {
+            padding-right: 30px;
+            margin: 12px 0 18px;
+            list-style: none;
+        }
+        .book-text ul li {
+            margin-bottom: 8px;
+            padding-right: 20px;
+            position: relative;
+        }
+        .book-text ul li::before {
+            content: "✦";
+            color: #b8956a;
+            position: absolute;
+            right: -8px;
+            font-size: 0.9rem;
+        }
+        .quote-in-text {
+            font-size: 1.05rem;
+            color: #4a3528;
+            padding: 15px 22px;
+            margin: 15px 0 20px;
+            border-right: 4px solid #b8956a;
+            background: #f5f0ea;
+            border-radius: 4px;
+            font-weight: 500;
+            line-height: 2.2;
+        }
+
+        /* استایل عکس‌ها */
+        .book-image {
+            text-align: center;
+            margin: 20px 0 25px;
+        }
+        .book-image img {
+            width: 100%;
+            max-width: 550px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .book-image img:hover {
+            transform: scale(1.01);
+        }
+        .book-image .caption {
+            color: #7a6b60;
+            font-size: 0.85rem;
+            margin-top: 6px;
+            font-weight: 300;
+        }
+
+        /* ===== شخصیت‌ها و تمدن‌ها ===== */
+        .characters-section {
+            margin: 40px 0 30px;
+            padding: 30px 25px;
+            background: #f5edd6;
+            border-radius: 12px;
+            border: 2px solid #e8d5a0;
+            transition: background 0.4s, border-color 0.4s;
+        }
+        .characters-section h2 {
+            text-align: center;
+            font-family: 'B Nazanin', 'BTitr', serif;
+            color: #1f1610;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 12px;
+        }
+        .character-card {
+            background: #fcf9f5;
+            padding: 14px 18px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #b8956a;
+            transition: 0.3s;
+            cursor: pointer;
+            font-weight: 600;
+            color: #4a3528;
+            font-size: 0.95rem;
+        }
+        .character-card:hover {
+            background: #b8956a;
+            color: #1a0f0a;
+            transform: scale(1.04);
+            box-shadow: 0 4px 15px rgba(184, 149, 106, 0.3);
+        }
+        .character-card .icon {
+            display: block;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        .character-card .type {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 300;
+            opacity: 0.7;
+            margin-top: 3px;
+        }
+
+        /* ===== جدول زمانی ===== */
+        .timeline-section {
+            margin: 40px 0 30px;
+            padding: 30px 25px;
+            background: #f5edd6;
+            border-radius: 12px;
+            border: 2px solid #e8d5a0;
+            transition: background 0.4s, border-color 0.4s;
+        }
+        .timeline-section h2 {
+            text-align: center;
+            font-family: 'B Nazanin', 'BTitr', serif;
+            color: #1f1610;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        .timeline {
+            position: relative;
+            padding: 10px 0;
+        }
+        .timeline-line {
+            position: absolute;
+            right: 20px;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: #b8956a;
+            border-radius: 4px;
+        }
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 22px;
+            padding-right: 50px;
+            position: relative;
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-dot {
+            position: absolute;
+            right: 14px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: #b8956a;
+            border-radius: 50%;
+            border: 3px solid #f5edd6;
+            box-shadow: 0 0 0 3px #b8956a;
+            z-index: 1;
+        }
+        .timeline-year {
+            font-weight: 700;
+            color: #b8956a;
+            font-size: 1.15rem;
+            display: block;
+        }
+        .timeline-desc {
+            font-size: 1rem;
+            color: #4a3528;
+            display: block;
+            line-height: 1.6;
+            margin-top: 2px;
+        }
+
+        /* ===== نقل‌قول قابل اشتراک ===== */
+        .share-quote {
+            padding: 20px 25px;
+            margin: 20px 0;
+            background: #fcf9f5;
+            border-radius: 12px;
+            border-right: 4px solid #b8956a;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: background 0.4s, border-color 0.4s;
+        }
+        .share-quote .quote-text {
+            font-size: 1.1rem;
+            line-height: 2.2;
+            color: #4a3528;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+        .share-quote .quote-text::before {
+            content: "❝ ";
+            color: #b8956a;
+            font-size: 1.3rem;
+        }
+        .share-quote .quote-text::after {
+            content: " ❞";
+            color: #b8956a;
+            font-size: 1.3rem;
+        }
+        .share-quote .quote-source {
+            font-size: 0.85rem;
+            color: #7a6b60;
+            margin-bottom: 12px;
+            text-align: left;
+        }
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn-share {
+            padding: 8px 18px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'IRANSans', 'Tahoma', sans-serif;
+        }
+        .btn-share.copy {
+            background: #b8956a;
+            color: #1a0f0a;
+        }
+        .btn-share.copy:hover {
+            background: #d4b08a;
+            transform: scale(1.04);
+        }
+        .btn-share.share {
+            background: #0088cc;
+            color: #fff;
+        }
+        .btn-share.share:hover {
+            background: #0077b3;
+            transform: scale(1.04);
+        }
+        .btn-share.whatsapp {
+            background: #25D366;
+            color: #fff;
+        }
+        .btn-share.whatsapp:hover {
+            background: #1da851;
+            transform: scale(1.04);
+        }
+        .btn-share.telegram {
+            background: #0088cc;
+            color: #fff;
+        }
+        .btn-share.telegram:hover {
+            background: #0077b3;
+            transform: scale(1.04);
+        }
+        .copy-feedback {
+            font-size: 0.85rem;
+            color: #4CAF50;
+            margin-top: 6px;
+            font-weight: 600;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        .copy-feedback.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-5px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== منابع ===== */
+        .bibliography {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e8dfd6;
+        }
+        .bibliography h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #4a3528;
+            font-family: 'B Nazanin', 'BTitr', serif;
+            margin-bottom: 20px;
+            padding-right: 14px;
+            border-right: 4px solid #b8956a;
+        }
+        .bibliography .b-group {
+            margin-bottom: 20px;
+        }
+        .bibliography .b-group h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #5a4538;
+            margin-bottom: 8px;
+        }
+        .bibliography .b-group ul {
+            padding-right: 25px;
+            list-style: none;
+        }
+        .bibliography .b-group ul li {
+            padding-right: 18px;
+            position: relative;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #3d322b;
+        }
+        .bibliography .b-group ul li::before {
+            content: "•";
+            color: #b8956a;
+            position: absolute;
+            right: -2px;
+        }
+
+        /* ===== ناوبری ===== */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid #e8dfd6;
+        }
+        .btn-nav {
+            padding: 10px 28px;
+            background: #2c241e;
+            color: #f5eee7;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .btn-nav:hover {
+            background: #4a3528;
+            transform: scale(1.02);
+        }
+        .btn-nav.prev {
+            background: transparent;
+            color: #4a3528;
+            border: 2px solid #d5c9be;
+        }
+        .btn-nav.prev:hover {
+            background: #d5c9be;
+        }
+
+        @media (max-width: 600px) {
+            .book-page { padding: 25px 18px; }
+            .progress-bar { margin: -25px -18px 20px -18px; padding: 10px 15px; }
+            .part-title { font-size: 1.4rem; }
+            .chapter-title { font-size: 1.2rem; }
+            .book-text { font-size: 0.95rem; line-height: 2.2; }
+            .top-menu a { font-size: 0.65rem; padding: 4px 8px; }
+            .search-box { padding: 15px; }
+            .search-box .search-wrapper { flex-direction: column; }
+            .search-box input { width: 100%; min-width: unset; }
+            .search-box .btn-search,
+            .search-box .btn-clear { width: 48%; }
+            .characters-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+            .character-card { padding: 10px 12px; font-size: 0.85rem; }
+            .timeline-section { padding: 20px 15px; }
+            .timeline-item { padding-right: 40px; }
+            .timeline-dot { right: 8px; width: 14px; height: 14px; }
+            .timeline-line { right: 14px; }
+            .nav-buttons { flex-direction: column; gap: 12px; }
+            .btn-nav { text-align: center; }
+            .share-quote { padding: 15px 18px; }
+            .share-quote .quote-text { font-size: 1rem; }
+            .share-buttons .btn-share { font-size: 0.75rem; padding: 6px 14px; }
+            #searchResults { max-height: 200px; }
+            .book-image img { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+<div class="book-page">
+
+    <!-- ===== نوار پیشرفت مطالعه (Sticky) ===== -->
+    <div class="progress-bar" id="progressBar">
+        <div class="progress-top">
+            <span class="label">📖 پیشرفت مطالعه</span>
+            <span class="percent" id="progressPercent">۰%</span>
+        </div>
+        <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+    </div>
+
+    <!-- ===== منو ===== -->
+    <div class="top-menu">
+        <a href="cover.html">📖 جلد</a>
+        <a href="copyright.html">© حقوق</a>
+        <a href="toc.html">📑 فهرست</a>
+        <a href="introduction.html">📝 مقدمه</a>
+        <a href="about-book.html">📘 درباره اثر</a>
+        <a href="book.html" class="active">📚 متن کتاب</a>
+        <a href="author.html">👤 نویسنده</a>
+        <a href="final-cover.html">🔮 افق فردا (جلد پایانی)</a>
+        <a href="download.html">📥 دانلود</a>
+    </div>
+
+    <!-- ===== جستجو ===== -->
+    <div class="search-box">
+        <div class="search-wrapper">
+            <input type="text" id="searchInput" placeholder="🔍 جستجو در کتاب...">
+            <button class="btn-search" onclick="searchBook()">🔍 جستجو</button>
+            <button class="btn-clear" onclick="clearSearch()">✕ پاک کردن</button>
+        </div>
+        <div id="searchResults"></div>
+    </div>
+
+    <!-- ===== متن کامل کتاب ===== -->
+    <div id="bookContent">
+
+        <!-- ==================== بخش اول ==================== -->
+        <div class="part">
+            <h1 class="part-title">بخش اول: میراث گذشتگان</h1>
+
+            <!-- ===== فصل ۱ ===== -->
+            <div class="chapter">
+                <h2 class="chapter-title">فصل ۱: خورشید اول (پیش از تاریخ و ظهور انسان)</h2>
+                <div class="book-text">
+                    <p>در میانه‌های بیابان‌های آفریقا، میلیون‌ها سال پیش از آنکه اولین کلمه نوشته شود یا اولین شهر ساخته شود، زمینی وجود داشت که تنها با صدای باد و غرش حیوانات شناخته می‌شد. در این دوران، جهان، دنیایی بی‌رحم و خام بود.</p>
+
+                    <div class="share-quote">
+                        <div class="quote-text">تاریخ، حافظهٔ جمعی تمدن‌هاست.</div>
+                        <div class="quote-source">— کتاب تاریخ جهان</div>
+                        <div class="share-buttons">
+                            <button class="btn-share copy" onclick="copyQuote(this, 'تاریخ، حافظهٔ جمعی تمدن‌هاست.')">📋 کپی</button>
+                            <button class="btn-share share" onclick="shareQuote('تاریخ، حافظهٔ جمعی تمدن‌هاست.')">📤 اشتراک</button>
+                            <button class="btn-share whatsapp" onclick="shareWhatsApp('تاریخ، حافظهٔ جمعی تمدن‌هاست.')">💬 واتساپ</button>
+                            <button class="btn-share telegram" onclick="shareTelegram('تاریخ، حافظهٔ جمعی تمدن‌هاست.')">✈️ تلگرام</button>
+                        </div>
+                        <div class="copy-feedback">✅ متن با موفقیت کپی شد!</div>
+                    </div>
+
+                    <h3 class="sub-title">جرقه اول: هوش در برابر غریزه</h3>
+                    <p>تفاوت بزرگ انسان با سایر موجودات، در قدرت «تصویرسازی ذهنی» نهفته بود. سایر حیوانات در دنیای «همین حالا» زندگی می‌کردند؛ آن‌ها آنچه را می‌دیدند، حس می‌کردند و می‌دانستند. اما انسان، موجودی بود که توانست چیزی را ببیند که وجود نداشت. او توانست در ذهن خود، یک «فردا» یا یک «دیروز» را تصور کند. این قدرت، اولین قدم برای تغییر جهان بود.</p>
+
+                    <div class="share-quote">
+                        <div class="quote-text">انسان، موجودی بود که توانست چیزی را ببیند که وجود نداشت.</div>
+                        <div class="quote-source">— کتاب تاریخ جهان</div>
+                        <div class="share-buttons">
+                            <button class="btn-share copy" onclick="copyQuote(this, 'انسان، موجودی بود که توانست چیزی را ببیند که وجود نداشت.')">📋 کپی</button>
+                            <button class="btn-share share" onclick="shareQuote('انسان، موجودی بود که توانست چیزی را ببیند که وجود نداشت.')">📤 اشتراک</button>
+                            <button class="btn-share whatsapp" onclick="shareWhatsApp('انسان، موجودی بود که توانست چیزی را ببیند که وجود نداشت.')">💬 واتساپ</button>
+                            <button class="btn-share telegram" onclick="shareTelegram('انسان، موجودی بود که توانست چیزی را ببیند که وجود نداشت.')">✈️ تلگرام</button>
+                        </div>
+                        <div class="copy-feedback">✅ متن با موفقیت کپی شد!</div>
+                    </div>
+
+                    <h3 class="sub-title">انقلاب آتش: اولین تسلط بر انرژی</h3>
+
+                    <div class="book-image">
+                        <img src="fire.jpg" alt="آتش - اولین انرژی مهار شده توسط بشر">
+                        <p class="caption">🔥 آتش؛ اولین انرژی که بشر مهار کرد</p>
+                    </div>
+
+                    <p>اگر بخواهیم یک نقطه عطف برای تاریخ بشر انتخاب کنیم، آن نقطه، لحظه‌ای است که انسان، آتش را مهار کرد. آتش، تنها یک منبع گرما یا روشنایی نبود؛ آتش، اولین ابزار ما برای «مهندسی محیط» بود.</p>
+                    <div class="quote-in-text">با آتش، ما توانستیم:</div>
+                    <ul>
+                        <li><strong>غذای پخته شده بخوریم</strong> — که این کار انرژی بیشتری برای رشد مغز فراهم کرد.</li>
+                        <li><strong>شب را شکست دهیم</strong> — که باعث شد زمانِ تعامل اجتماعی و انتقال داستان‌ها افزایش یابد.</li>
+                        <li><strong>دفاع کنیم</strong> — که باعث شد ترس از تاریکی و درندگان، جای خود را به اعتمادبه‌نفس بدهد.</li>
+                    </ul>
+                    
+                    <h3 class="sub-title">زبان؛ ساختن دنیای نامرئی</h3>
+
+                    <div class="book-image">
+                        <img src="language.jpg" alt="زبان - ساختن دنیای نامرئی">
+                        <p class="caption">🗣️ زبان؛ اولین پل ارتباطی تمدن‌ها</p>
+                    </div>
+
+                    <p>اما بزرگترین ابزار ما نه سنگ بود و نه آتش؛ بلکه «زبان» بود. وقتی اولین انسان توانست به دیگری بگوید: «در آن سمت تپه، شکاری هست که فردا می‌توانیم با هم بگیریم»، او در واقع اولین بذر یک جامعه را کاشت.</p>
+                    <p>زبان، اجازه داد که دانش از یک ذهن به ذهن دیگر منتقل شود. دیگر نیازی نبود هر نسل دوباره باید همه چیز را از صفر یاد می‌گرفت؛ ما توانستیم بر شانه‌های گذشتگان بایستیم.</p>
+                    <p style="font-style: italic; color: #7a6b60; text-align: center; margin-top: 12px;">با زبان و ابزار و آتش، ما از موجوداتی که صرفاً بخشی از طبیعت بودند، به موجوداتی تبدیل شدیم که شروع کردند به «ساختن» طبیعت. این، آغازِ ماجرای ما بود.</p>
+                </div>
+            </div>
+
+            <!-- ===== فصل ۲ ===== -->
+            <div class="chapter">
+                <h2 class="chapter-title">فصل ۲: رقص تمدن‌ها (عصر کشاورزی و ظهور دولت‌ها)</h2>
+                <div class="book-text">
+                    <p>برای میلیون‌ها سال، انسان تنها مسافری بود که در مهمان‌خانه‌های طبیعت می‌ماند؛ او جایی نمی‌ماند، چیزی نمی‌ساخت و تنها آنچه را که زمین در لحظه به او می‌داد، می‌گرفت. اما حدود ۱۰ هزار سال پیش، اتفاقی افتاد که تمام مسیر تاریخ را تغییر داد: انسان یاد گرفت که زمین را به خدمت بگیرد.</p>
+
+                    <div class="share-quote">
+                        <div class="quote-text">انسان یاد گرفت که زمین را به خدمت بگیرد.</div>
+                        <div class="quote-source">— کتاب تاریخ جهان</div>
+                        <div class="share-buttons">
+                            <button class="btn-share copy" onclick="copyQuote(this, 'انسان یاد گرفت که زمین را به خدمت بگیرد.')">📋 کپی</button>
+                            <button class="btn-share share" onclick="shareQuote('انسان یاد گرفت که زمین را به خدمت بگیرد.')">📤 اشتراک</button>
+                            <button class="btn-share whatsapp" onclick="shareWhatsApp('انسان یاد گرفت که زمین را به خدمت بگیرد.')">💬 واتساپ</button>
+                            <button class="btn-share telegram" onclick="shareTelegram('انسان یاد گرفت که زمین را به خدمت بگیرد.')">✈️ تلگرام</button>
+                        </div>
+                        <div class="copy-feedback">✅ متن با موفقیت کپی شد!</div>
+                    </div>
+
+                    <h3 class="sub-title">انقلاب نوسنگی: از حرکت تا سکونت</h3>
+
+                    <div class="book-image">
+                        <img src="neolithic-revolution.jpg" alt="انقلاب نوسنگی - کشاورزی">
+                        <p class="caption">🌾 انقلاب نوسنگی؛ تولد کشاورزی و سکونت</p>
+                    </div>
+
+                    <p>این لحظه، همان «انقلاب کشاورزی» است. وقتی انسان‌های نخستین یاد گرفتند که دانه‌های گیاهان را بکارند و حیوانات را اهلی کنند، زنجیرهای ناخودآگاهِ «کوچ‌نشینی» شکسته شد. کشاورزی، یعنی ما دیگر نیازی نداشتیم هر روز به دنبال غذا بچرخیم. ما توانستیم یک جا بمانیم.</p>
+                    <p>اما این «ماندن» هزینه‌ای هم داشت. وقتی شما در یک مکان ثابت می‌مانید، باید برای آن مکان مبارزه کنید، برای آن باید حصار بسازید و برای آن باید قانون بگذارید. همین‌جا بود که مفهوم «مالکیت» متولد شد. و وقتی مالکیت آمد، با آن «سلسله‌مراتب» هم آمد.</p>
+
+                    <h3 class="sub-title">رودخانه‌ها: رگ‌های تمدن</h3>
+
+                    <div class="book-image">
+                        <img src="rivers-civilization.jpg" alt="رودخانه‌ها و تمدن">
+                        <p class="caption">🏞️ رودخانه‌ها؛ رگ‌های حیاتی تمدن</p>
+                    </div>
+
+                    <p>تمدن‌ها به طور تصادفی در بیابان‌ها شکل نگرفتند؛ آن‌ها در کنار رگ‌های حیاتی زمین، یعنی رودخانه‌ها، جوانه زدند.</p>
+                    <ul>
+                        <li>در بین‌النهرین، میان دو رود فرات و دجله، اولین شهرهای بزرگ بنا شدند.</li>
+                        <li>در مصر، نیل به مردم نظم بخشید و اولین دولت‌های متمرکز را ایجاد کرد.</li>
+                        <li>در دره سند و چین باستان، کشاورزی گسترده، جوامع پیچیده را ایجاد کرد.</li>
+                    </ul>
+                    <p>این رودخانه‌ها فقط آب نداشتند؛ آن‌ها «مازاد غذا» داشتند. و وقتی غذای مازاد وجود داشت، همه مجبور نبودند کشاورز باشند. حالا می‌توانستیم «کارهای دیگر» انجام دهیم. این لحظه، تولد تخصص‌ها بود: مهندسان برای ساخت کانال‌های آب، سربازان برای دفاع از زمین، کاهن‌ها برای برقراری ارتباط با خدا، و کاتبانی برای ثبت آنچه در زمین رخ می‌دهد.</p>
+
+                    <h3 class="sub-title">نوشتن: حافظه ابدی بشر</h3>
+
+                    <div class="book-image">
+                        <img src="writing-invention.jpg" alt="اختراع نوشتن">
+                        <p class="caption">✍️ اختراع نوشتن؛ حافظه ابدی بشر</p>
+                    </div>
+
+                    <p>یکی از درخشان‌ترین دستاوردهای این دوران، اختراع نوشتن بود. ابتدا نوشته‌ها فقط برای شمارش گندم‌ها و گاوها بود (نیاز به حسابداری)، اما خیلی زود، نوشتن تبدیل شد به ابزاری برای ثبت قوانین، اشعار، و تاریخ‌ها.</p>
+                    <p>با نوشتن، انسان توانست زمان را شکست دهد. او توانست پیام خود را به هزار سال بعد بفرستد. با نوشتن، تمدن‌ها توانستند از یک «مجموعه از آدم‌ها» به یک «ساختار سیاسی» تبدیل شوند. قانون دیگر فقط یک دستور زبانی نبود که در لحظه شنیده شود؛ دیگر یک متن بود که بر سنگ حک می‌شد و بر همه حاکم می‌گشت.</p>
+
+                    <h3 class="sub-title">سایه تمدن: جنگ و طبقات اجتماعی</h3>
+
+                    <div class="book-image">
+                        <img src="war-classes.jpg" alt="جنگ و طبقات اجتماعی">
+                        <p class="caption">⚔️ سایه تمدن؛ جنگ و طبقات اجتماعی</p>
+                    </div>
+
+                    <p>اما این دوران زرین، تاریک هم بود. با تشکیل شهرهای بزرگ و انبار کردن ثروت، میل به غارت هم افزایش یافت. جنگ‌ها از رقابت برای غذا، به جنگ برای قلمرو و ثروت تبدیل شدند. تمدن‌ها، همان‌طور که شکوه و هنر می‌آفریدند، سلسله‌های سختگیر و برده‌داری را هم به وجود آوردند. بشریت در این دوران آموخت که چگونه همزمان هم «خالق» باشد و هم «نابودگر».</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== شخصیت‌ها و تمدن‌ها ===== -->
+        <div class="characters-section">
+            <h2>🏛️ شخصیت‌ها و تمدن‌ها</h2>
+            <div class="characters-grid">
+                <div class="character-card" onclick="searchCharacter('اسکندر')">
+                    <span class="icon">⚔️</span>
+                    اسکندر
+                    <span class="type">شخصیت</span>
+                </div>
+                <div class="character-card" onclick="searchCharacter('کوروش')">
+                    <span class="icon">👑</span>
+                    کوروش
+                    <span class="type">شخصیت</span>
+                </div>
+                <div class="character-card" onclick="searchCharacter('سزار')">
+                    <span class="icon">🏛️</span>
+                    سزار
+                    <span class="type">شخصیت</span>
+                </div>
+                <div class="character-card" onclick="searchCharacter('هخامنشیان')">
+                    <span class="icon">🦁</span>
+                    هخامنشیان
+                    <span class="type">تمدن</span>
+                </div>
+                <div class="character-card" onclick="searchCharacter('روم')">
+                    <span class="icon">🏗️</span>
+                    روم
+                    <span class="type">تمدن</span>
+                </div>
+                <div class="character-card" onclick="searchCharacter('یونان')">
+                    <span class="icon">🏺</span>
+                    یونان
+                    <span class="type">تمدن</span>
+                </div>
+                <div class="character-card" onclick="searchCharacter('ساسانیان')">
+                    <span class="icon">🔥</span>
+                    ساسانیان
+                    <span class="type">تمدن</span>
+                </div>
+                <div class="character-card" onclick="searchCharacter('مصر')">
+                    <span class="icon">🔺</span>
+                    مصر
+                    <span class="type">تمدن</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== جدول زمانی ===== -->
+        <div class="timeline-section">
+            <h2>⏳ جدول زمانی تاریخ</h2>
+            <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <span class="timeline-year">۵۵۰ ق.م</span>
+                        <span class="timeline-desc">هخامنشیان · تأسیس بزرگ‌ترین امپراتوری جهان باستان</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <span class="timeline-year">۳۳۱ ق.م</span>
+                        <span class="timeline-desc">اسکندر مقدونی · فتح ایران و سقوط هخامنشیان</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <span class="timeline-year">۲۲۴ م</span>
+                        <span class="timeline-desc">ساسانیان · تولد دومین امپراتوری بزرگ ایران</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <span class="timeline-year">۴۷۶ م</span>
+                        <span class="timeline-desc">سقوط روم غربی · پایان دوران باستان</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <span class="timeline-year">۲۰۲۶ م</span>
+                        <span class="timeline-desc">افق‌های دور · آغاز عصر جدید</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== نتیجه‌گیری ===== -->
+        <div class="part">
+            <h1 class="part-title">نتیجه‌گیری نهایی</h1>
+            <div class="chapter">
+                <h2 class="chapter-title">سرنوشت ما چیست؟</h2>
+                <div class="book-text">
+                    <p>کتاب با این نگاه به پایان می‌رسد که تاریخ، یک خطِ مستقیم نیست که به یک مقصد برسد، بلکه یک «مارپیچ» است. ما از سنگ و آتش شروع کردیم، از کشاورزی و امپراتوری‌ها گذشتیم، از جنگ‌های بزرگ و انقلاب‌های دیجیتال عبور کردیم و اکنون در میان ستارگان، در حالِ بازتعریفِ خود هستیم.</p>
+
+                    <div class="share-quote">
+                        <div class="quote-text">تاریخِ جهان، داستانِ تلاشِ بی‌پایانِ ما برای پاسخ به یک سوال است: «ما چقدر می‌توانیم فراتر از آنچه هستیم، پیش برویم، بدون اینکه خودمان را گم کنیم؟»</div>
+                        <div class="quote-source">— کتاب تاریخ جهان</div>
+                        <div class="share-buttons">
+                            <button class="btn-share copy" onclick="copyQuote(this, 'تاریخِ جهان، داستانِ تلاشِ بی‌پایانِ ما برای پاسخ به یک سوال است: «ما چقدر می‌توانیم فراتر از آنچه هستیم، پیش برویم، بدون اینکه خودمان را گم کنیم؟»')">📋 کپی</button>
+                            <button class="btn-share share" onclick="shareQuote('تاریخِ جهان، داستانِ تلاشِ بی‌پایانِ ما برای پاسخ به یک سوال است: «ما چقدر می‌توانیم فراتر از آنچه هستیم، پیش برویم، بدون اینکه خودمان را گم کنیم؟»')">📤 اشتراک</button>
+                            <button class="btn-share whatsapp" onclick="shareWhatsApp('تاریخِ جهان، داستانِ تلاشِ بی‌پایانِ ما برای پاسخ به یک سوال است: «ما چقدر می‌توانیم فراتر از آنچه هستیم، پیش برویم، بدون اینکه خودمان را گم کنیم؟»')">💬 واتساپ</button>
+                            <button class="btn-share telegram" onclick="shareTelegram('تاریخِ جهان، داستانِ تلاشِ بی‌پایانِ ما برای پاسخ به یک سوال است: «ما چقدر می‌توانیم فراتر از آنچه هستیم، پیش برویم، بدون اینکه خودمان را گم کنیم؟»')">✈️ تلگرام</button>
+                        </div>
+                        <div class="copy-feedback">✅ متن با موفقیت کپی شد!</div>
+                    </div>
+
+                    <p style="text-align: center; margin-top: 20px; color: #b8956a; font-size: 1.1rem;">✧ پایان ✧</p>
+                    <p style="text-align: center; color: #7a6b60; font-size: 0.9rem;">و این بود، پایانِ سفرِ ما در کتاب «تاریخ جهان؛ از سپیده‌دم تا افق‌های دور».<br>ما از اولین جرقهٔ آتش در غارها شروع کردیم و به آخرین سیگنالِ هوش در دلِ کهکشان رسیدیم.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== منابع و مراجع ===== -->
+        <div class="bibliography">
+            <h2>منابع و مراجع</h2>
+
+            <div class="b-group">
+                <h3>الف) تاریخ و تمدن‌های باستان</h3>
+                <ul>
+                    <li>تاریخ جهان باستان، تألیف: لئوپولد فون رانکه.</li>
+                    <li>ایران در عصر باستان: از هخامنشیان تا ساسانیان، انتشارات علمی پژوهشی.</li>
+                    <li>تاریخ تمدن‌های شرق، مراجع کلاسیک در حوزه باستان‌شناسی.</li>
+                </ul>
+            </div>
+
+            <div class="b-group">
+                <h3>ب) علوم پایه و تکنولوژی</h3>
+                <ul>
+                    <li>تاریخچه کوتاهی از زمان، استیون هاوکینگ (برای مفاهیم کیهانی).</li>
+                    <li>انقلاب بیولوژیک: عصر کریسپر و مهندسی ژنتیک، مقالات منتشر شده در Nature و Science.</li>
+                    <li>هوش مصنوعی و آینده بشر، مقالات پژوهشی از OpenAI و DeepMind.</li>
+                </ul>
+            </div>
+
+            <div class="b-group">
+                <h3>ج) آینده‌پژوهی و فلسفه</h3>
+                <ul>
+                    <li>تکامل فناوری و سرنوشت بشریت، یووال نوح هراری.</li>
+                    <li>سناریونویسی در عصر دیجیتال، مراجع مدیریت استراتژیک و آینده‌پژوهی.</li>
+                    <li>فلسفه تکنولوژی: مرز میان ماشین و انسان، متون فلسفی مدرن.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div><!-- end bookContent -->
+
+    <!-- ===== ناوبری ===== -->
+    <div class="nav-buttons">
+        <a href="about-book.html" class="btn-nav prev">← درباره اثر</a>
+        <a href="author.html" class="btn-nav">درباره نویسنده →</a>
+    </div>
+
+</div><!-- end book-page -->
+
+<!-- ===== اسکریپت‌ها ===== -->
+<script>
+    // ========================================
+    // ۱. نوار پیشرفت مطالعه
+    // ========================================
+    function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? Math.round((scrollTop / docHeight) * 100) : 0;
+        const percentEl = document.getElementById('progressPercent');
+        const fillEl = document.getElementById('progressFill');
+        if (percentEl) percentEl.textContent = progress + '%';
+        if (fillEl) fillEl.style.width = progress + '%';
+    }
+
+    window.addEventListener('scroll', updateProgress);
+    window.addEventListener('load', updateProgress);
+
+    // ========================================
+    // ۲. جستجو با هایلایت زرد
+    // ========================================
+    function searchBook() {
+        const query = document.getElementById('searchInput').value.trim();
+        const resultsDiv = document.getElementById('searchResults');
+
+        document.querySelectorAll('.highlight-search').forEach(el => {
+            const parent = el.parentNode;
+            parent.replaceChild(document.createTextNode(el.textContent), el);
+            parent.normalize();
+        });
+
+        if (query.length === 0) {
+            resultsDiv.style.display = 'none';
+            return;
+        }
+
+        const content = document.getElementById('bookContent');
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = content.innerHTML;
+        const elements = tempDiv.querySelectorAll('p, h2, h3, li, .sub-title, .chapter-title, .part-title, .timeline-year, .timeline-desc, .quote-text');
+        let found = [];
+        const lowerQuery = query.toLowerCase();
+
+        elements.forEach(el => {
+            const text = el.textContent.trim();
+            if (text.length > 0 && text.toLowerCase().includes(lowerQuery)) {
+                found.push(text);
+            }
+        });
+
+        if (found.length > 0) {
+            const allTextElements = document.querySelectorAll('#bookContent p, #bookContent h2, #bookContent h3, #bookContent li, #bookContent .sub-title, #bookContent .chapter-title, #bookContent .part-title, #bookContent .timeline-year, #bookContent .timeline-desc, #bookContent .quote-text');
+            allTextElements.forEach(el => {
+                const text = el.textContent;
+                if (text.toLowerCase().includes(lowerQuery)) {
+                    const regex = new RegExp(query, 'gi');
+                    el.innerHTML = text.replace(regex, match => `<span class="highlight-search">${match}</span>`);
+                }
+            });
+
+            let html = `<div style="font-weight:700; color:#b8956a; margin-bottom:10px;">🔍 نتایج جستجو برای "<span style="color:#4a3528;">${query}</span>":</div>`;
+            found.slice(0, 30).forEach(item => {
+                const highlighted = item.replace(new RegExp(query, 'gi'), match => `<span class="highlight-search" style="background:#ffeb3b !important; color:#1a0f0a !important; padding:2px 4px; border-radius:3px; font-weight:700;">${match}</span>`);
+                html += `<div class="result-item">${highlighted}</div>`;
+            });
+            if (found.length > 30) {
+                html += `<div style="color:#7a6b60; text-align:center; padding:8px;">... و ${found.length - 30} نتیجه دیگر</div>`;
+            }
+            resultsDiv.innerHTML = html;
+            resultsDiv.style.display = 'block';
+            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            resultsDiv.innerHTML = `<div class="no-result">❌ هیچ نتیجه‌ای برای "<strong>${query}</strong>" یافت نشد.</div>`;
+            resultsDiv.style.display = 'block';
+        }
+    }
+
+    function clearSearch() {
+        document.getElementById('searchInput').value = '';
+        document.getElementById('searchResults').style.display = 'none';
+        document.querySelectorAll('.highlight-search').forEach(el => {
+            const parent = el.parentNode;
+            parent.replaceChild(document.createTextNode(el.textContent), el);
+            parent.normalize();
+        });
+    }
+
+    document.getElementById('searchInput').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            searchBook();
+        }
+    });
+
+    function searchCharacter(name) {
+        document.getElementById('searchInput').value = name;
+        searchBook();
+        document.getElementById('searchInput').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // ========================================
+    // ۳. نقل‌قول قابل اشتراک
+    // ========================================
+    function copyQuote(btn, quote) {
+        const fullText = `"${quote}"\n— کتاب تاریخ جهان`;
+        
+        navigator.clipboard.writeText(fullText).then(() => {
+            const feedback = btn.parentElement.querySelector('.copy-feedback');
+            if (feedback) {
+                feedback.classList.add('show');
+                setTimeout(() => {
+                    feedback.classList.remove('show');
+                }, 3000);
+            }
+        }).catch(() => {
+            const textarea = document.createElement('textarea');
+            textarea.value = fullText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            const feedback = btn.parentElement.querySelector('.copy-feedback');
+            if (feedback) {
+                feedback.classList.add('show');
+                setTimeout(() => {
+                    feedback.classList.remove('show');
+                }, 3000);
+            }
+        });
+    }
+
+    function shareQuote(quote) {
+        const fullText = `"${quote}"\n— کتاب تاریخ جهان`;
+        if (navigator.share) {
+            navigator.share({
+                title: 'نقل‌قولی از کتاب تاریخ جهان',
+                text: fullText
+            }).catch(() => {});
+        } else {
+            copyQuoteFallback(fullText);
+        }
+    }
+
+    function shareWhatsApp(quote) {
+        const fullText = `"${quote}"\n— کتاب تاریخ جهان`;
+        const url = `https://wa.me/?text=${encodeURIComponent(fullText)}`;
+        window.open(url, '_blank');
+    }
+
+    function shareTelegram(quote) {
+        const fullText = `"${quote}"\n— کتاب تاریخ جهان`;
+        const url = `https://t.me/share/url?url=&text=${encodeURIComponent(fullText)}`;
+        window.open(url, '_blank');
+    }
+
+    function copyQuoteFallback(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        alert('✅ نقل‌قول در کلیپ‌بورد کپی شد!');
+    }
+</script>
+
+<!-- ===== دکمه تغییر تم ===== -->
+<script>
+    (function() {
+        var btn = document.createElement('button');
+        btn.id = 'themeToggle';
+        
+        var savedTheme = localStorage.getItem('theme') || 'light';
+        
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.body.classList.remove('light-mode');
+            btn.innerHTML = '☀️';
+        } else {
+            document.body.classList.add('light-mode');
+            document.body.classList.remove('dark-mode');
+            btn.innerHTML = '🌙';
+        }
+        
+        btn.style.cssText = 'position:fixed; bottom:100px; right:25px; padding:12px 16px; background:#4a3528; color:#f5eee7; border:3px solid #b8956a; border-radius:50%; cursor:pointer; font-size:1.5rem; z-index:999; box-shadow:0 4px 20px rgba(0,0,0,0.4); transition:0.3s; width:55px; height:55px; display:flex; align-items:center; justify-content:center;';
+        
+        document.body.appendChild(btn);
+        
+        btn.addEventListener('click', function() {
+            var isDark = document.body.classList.contains('dark-mode');
+            
+            if (isDark) {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('light-mode');
+                this.innerHTML = '🌙';
+                localStorage.setItem('theme', 'light');
+                this.style.background = '#4a3528';
+                this.style.color = '#f5eee7';
+                this.style.borderColor = '#b8956a';
+            } else {
+                document.body.classList.remove('light-mode');
+                document.body.classList.add('dark-mode');
+                this.innerHTML = '☀️';
+                localStorage.setItem('theme', 'dark');
+                this.style.background = '#b8956a';
+                this.style.color = '#1a0f0a';
+                this.style.borderColor = '#d4b08a';
+            }
+        });
+        
+        if (document.body.classList.contains('dark-mode')) {
+            btn.style.background = '#b8956a';
+            btn.style.color = '#1a0f0a';
+            btn.style.borderColor = '#d4b08a';
+        }
+        
+        var style = document.createElement('style');
+        style.textContent = '#themeToggle:hover { transform: scale(1.15) !important; box-shadow: 0 6px 30px rgba(184, 149, 106, 0.5) !important; }';
+        document.head.appendChild(style);
+    })();
+</script>
+
+<!-- ===== دکمه موسیقی ===== -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.createElement('button');
+        btn.id = 'musicToggle';
+        btn.innerHTML = '🔊';
+        btn.style.cssText = 'position:fixed; bottom:30px; right:25px; padding:12px 14px; background:#b8956a; color:#1a0f0a; border:3px solid #4a3228; border-radius:50%; cursor:pointer; font-size:1.5rem; z-index:999; box-shadow:0 4px 20px rgba(0,0,0,0.4); transition:0.3s; display:flex; align-items:center; justify-content:center; width:55px; height:55px;';
+        document.body.appendChild(btn);
+
+        var audio = document.createElement('audio');
+        audio.id = 'bgMusic';
+        audio.loop = true;
+        audio.innerHTML = '<source src="music.mp3" type="audio/mpeg">';
+        document.body.appendChild(audio);
+
+        var isPlaying = false;
+
+        btn.addEventListener('click', function() {
+            if (isPlaying) {
+                audio.pause();
+                btn.innerHTML = '🔇';
+                isPlaying = false;
+            } else {
+                audio.play();
+                btn.innerHTML = '🔊';
+                isPlaying = true;
+            }
+        });
+
+        document.addEventListener('click', function() {
+            if (!isPlaying) {
+                audio.play();
+                btn.innerHTML = '🔊';
+                isPlaying = true;
+            }
+        }, { once: true });
+
+        var style = document.createElement('style');
+        style.textContent = '#musicToggle:hover { transform: scale(1.15) !important; background: #d4b08a !important; border-color: #6d4c38 !important; box-shadow: 0 6px 30px rgba(184, 149, 106, 0.5) !important; }';
+        document.head.appendChild(style);
+    });
+</script>
+
+</body>
+</html>

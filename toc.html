@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فهرست - تاریخ جهان</title>
+    <link rel="icon" type="image/jpg" href="favicon.jpg">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'IRANSans', 'Tahoma', sans-serif;
+            background-color: #f5f0ea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .toc-page {
+            max-width: 700px;
+            width: 100%;
+            background: #fcf9f5;
+            padding: 50px 55px;
+            border-radius: 8px;
+            box-shadow: 0 12px 45px rgba(0,0,0,0.08);
+            border: 1px solid #e8dfd6;
+            color: #2c241e;
+        }
+        .top-menu {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 8px 0 12px;
+            border-bottom: 2px solid #e8dfd6;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .top-menu a {
+            color: #4a3528;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 30px;
+            background: #f5edd6;
+            transition: 0.3s;
+            border: 2px solid transparent;
+            white-space: nowrap;
+        }
+        .top-menu a:hover {
+            background: #ecd9a8;
+            border-color: #d4a84a;
+        }
+        .top-menu a.active {
+            background: #e8c86a;
+            border-color: #c49a2a;
+            color: #1f1610;
+        }
+
+        .toc-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-align: center;
+            color: #1f1610;
+            font-family: 'B Nazanin', 'BTitr', serif;
+            margin-bottom: 6px;
+            letter-spacing: 2px;
+        }
+        .toc-sub {
+            text-align: center;
+            color: #7a6b60;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e8dfd6;
+            padding-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 28px;
+        }
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #4a3528;
+            border-right: 4px solid #b8956a;
+            padding-right: 14px;
+            margin-bottom: 12px;
+            font-family: 'B Nazanin', 'BTitr', serif;
+        }
+        .chapter {
+            padding: 5px 0 5px 10px;
+            font-size: 0.98rem;
+            line-height: 2;
+            border-bottom: 1px dashed #ede7e0;
+            transition: 0.2s;
+        }
+        .chapter:hover {
+            background: #f5f0ea;
+            border-radius: 4px;
+            padding-right: 8px;
+        }
+        .chapter .name {
+            color: #2c241e;
+            text-decoration: none;
+        }
+        .special-section .section-title {
+            border-right-color: #8a7a6a;
+        }
+        .special-section .chapter {
+            border-bottom-color: #e8dfd6;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid #e8dfd6;
+        }
+        .btn-nav {
+            padding: 10px 28px;
+            background: #2c241e;
+            color: #f5eee7;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .btn-nav:hover {
+            background: #4a3528;
+            transform: scale(1.02);
+        }
+        .btn-nav.prev {
+            background: transparent;
+            color: #4a3528;
+            border: 2px solid #d5c9be;
+        }
+        .btn-nav.prev:hover {
+            background: #d5c9be;
+        }
+        @media (max-width: 600px) {
+            .toc-page { padding: 30px 20px; }
+            .toc-title { font-size: 1.7rem; }
+            .chapter { font-size: 0.9rem; }
+            .top-menu a { font-size: 0.7rem; padding: 4px 10px; }
+            .nav-buttons { flex-direction: column; gap: 12px; }
+            .btn-nav { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<div class="toc-page">
+    <div class="top-menu">
+        <a href="cover.html">📖 جلد</a>
+        <a href="copyright.html">© حقوق</a>
+        <a href="toc.html" class="active">📑 فهرست</a>
+        <a href="introduction.html">📝 مقدمه</a>
+        <a href="about-book.html">📘 درباره اثر</a>
+        <a href="book.html">📚 متن کتاب</a>
+        <a href="author.html">👤 نویسنده</a>
+        <a href="final-cover.html">🔮 افق فردا (جلد پایانی)</a>
+        <a href="download.html">📥 دانلود</a>
+    </div>
+
+    <h1 class="toc-title">فهرست مطالب</h1>
+    <p class="toc-sub">تاریخ جهان · از سپیده‌دم تا افق‌های دور</p>
+
+    <!-- بخش اول -->
+    <div class="section">
+        <div class="section-title">بخش اول: میراث گذشتگان</div>
+        <div class="chapter"><span class="name">فصل ۱: خورشید اول (پیش از تاریخ و ظهور انسان)</span></div>
+        <div class="chapter"><span class="name">فصل ۲: رقص تمدن‌ها (عصر کشاورزی و ظهور دولت‌ها)</span></div>
+        <div class="chapter"><span class="name">فصل ۳: عصر اتصال (امپراتوری‌های جهانی و جاده‌های ابریشم)</span></div>
+        <div class="chapter"><span class="name">فصل ۴: تکانه‌های بزرگ (از رنسانس تا انقلاب صنعتی)</span></div>
+    </div>
+
+    <!-- بخش دوم -->
+    <div class="section">
+        <div class="section-title">بخش دوم: جهان در آشوب و نظم</div>
+        <div class="chapter"><span class="name">فصل ۵: عصر تضادها (جنگ‌های بزرگ و تولد دنیای دیجیتال)</span></div>
+    </div>
+
+    <!-- بخش سوم -->
+    <div class="section">
+        <div class="section-title">بخش سوم: افق‌های دور (۲۰۲۶ - ۲۲۲۶)</div>
+        <div class="chapter"><span class="name">فصل ۶: نیم‌قرن اول آینده (۲۰۲۶ - ۲۰۷۵): عصر هوش و بازتعریفِ «انسان»</span></div>
+        <div class="chapter"><span class="name">فصل ۷: عصر بقا و شکافِ بزرگ (۲۰۷۵ - ۲۱۵۰): زمین در برابر ستارگان</span></div>
+        <div class="chapter"><span class="name">فصل ۸: قرنِ نوین (۲۱۵۰ - ۲۲۲۶): گام به سوی ستارگان و فروپاشیِ مرزها</span></div>
+    </div>
+
+    <!-- نتیجه‌گیری -->
+    <div class="section special-section">
+        <div class="section-title">نتیجه‌گیری</div>
+        <div class="chapter"><span class="name">سرنوشت ما چیست؟</span></div>
+        <div class="chapter" style="border-bottom: none;"><span class="name">منابع و مراجع</span></div>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="copyright.html" class="btn-nav prev">← صفحه حقوق</a>
+        <a href="introduction.html" class="btn-nav">مقدمه →</a>
+    </div>
+</div>
+<script src="favicon.js"></script>
+<button id="musicToggle" style="position:fixed; bottom:30px; right:30px; padding:12px 14px; background:#b8956a; color:#1a0f0a; border:3px solid #4a3228; border-radius:50%; cursor:pointer; font-size:1.5rem; z-index:999; box-shadow:0 4px 20px rgba(0,0,0,0.4); transition:0.3s; display:flex; align-items:center; justify-content:center; width:50px; height:50px;">🔊</button>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<style>
+    #musicToggle:hover {
+        transform: scale(1.2);
+        background: #d4b08a;
+        border-color: #6d4c38;
+        box-shadow: 0 6px 30px rgba(184, 149, 106, 0.6);
+    }
+</style>
+
+<script>
+    const btn = document.getElementById('musicToggle');
+    const audio = document.getElementById('bgMusic');
+    let isPlaying = false;
+
+    btn.addEventListener('click', function() {
+        if (isPlaying) {
+            audio.pause();
+            btn.innerHTML = '🔇';
+            isPlaying = false;
+        } else {
+            audio.play();
+            btn.innerHTML = '🔊';
+            isPlaying = true;
+        }
+    });
+
+    document.addEventListener('click', function() {
+        if (!isPlaying) {
+            audio.play();
+            btn.innerHTML = '🔊';
+            isPlaying = true;
+        }
+    }, { once: true });
+</script>
+</body>
+</html>
