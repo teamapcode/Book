@@ -20,6 +20,7 @@
             justify-content: center;
             padding: 30px 20px;
             transition: background-color 0.4s, color 0.4s;
+            -webkit-tap-highlight-color: transparent; /* حذف افکت آبی هنگام کلیک */
         }
         .book-page {
             max-width: 750px;
@@ -102,6 +103,7 @@
             transition: 0.3s;
             border: 2px solid transparent;
             white-space: nowrap;
+            -webkit-tap-highlight-color: transparent;
         }
         .top-menu a:hover {
             background: #ecd9a8;
@@ -146,6 +148,7 @@
             font-family: 'IRANSans', 'Tahoma', sans-serif;
             transition: 0.3s;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            -webkit-tap-highlight-color: transparent;
         }
         .search-box input:focus {
             border-color: #8a6d4a;
@@ -169,6 +172,7 @@
             font-family: 'IRANSans', 'Tahoma', sans-serif;
             box-shadow: 0 4px 15px rgba(184, 149, 106, 0.3);
             letter-spacing: 0.5px;
+            -webkit-tap-highlight-color: transparent;
         }
         .search-box .btn-search:hover {
             transform: translateY(-2px) scale(1.03);
@@ -190,6 +194,7 @@
             transition: 0.3s;
             font-family: 'IRANSans', 'Tahoma', sans-serif;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            -webkit-tap-highlight-color: transparent;
         }
         .search-box .btn-clear:hover {
             background: #c4b5a5;
@@ -364,12 +369,17 @@
             font-weight: 600;
             color: #4a3528;
             font-size: 0.95rem;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
         }
         .character-card:hover {
             background: #b8956a;
             color: #1a0f0a;
             transform: scale(1.04);
             box-shadow: 0 4px 15px rgba(184, 149, 106, 0.3);
+        }
+        .character-card:active {
+            transform: scale(0.95);
         }
         .character-card .icon {
             display: block;
@@ -499,6 +509,8 @@
             align-items: center;
             gap: 6px;
             font-family: 'IRANSans', 'Tahoma', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
         }
         .btn-share.copy {
             background: #b8956a;
@@ -508,6 +520,9 @@
             background: #d4b08a;
             transform: scale(1.04);
         }
+        .btn-share.copy:active {
+            transform: scale(0.95);
+        }
         .btn-share.share {
             background: #0088cc;
             color: #fff;
@@ -515,6 +530,9 @@
         .btn-share.share:hover {
             background: #0077b3;
             transform: scale(1.04);
+        }
+        .btn-share.share:active {
+            transform: scale(0.95);
         }
         .btn-share.whatsapp {
             background: #25D366;
@@ -524,6 +542,9 @@
             background: #1da851;
             transform: scale(1.04);
         }
+        .btn-share.whatsapp:active {
+            transform: scale(0.95);
+        }
         .btn-share.telegram {
             background: #0088cc;
             color: #fff;
@@ -531,6 +552,9 @@
         .btn-share.telegram:hover {
             background: #0077b3;
             transform: scale(1.04);
+        }
+        .btn-share.telegram:active {
+            transform: scale(0.95);
         }
         .copy-feedback {
             font-size: 0.85rem;
@@ -609,10 +633,15 @@
             font-weight: bold;
             font-size: 0.9rem;
             transition: 0.3s;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
         }
         .btn-nav:hover {
             background: #4a3528;
             transform: scale(1.02);
+        }
+        .btn-nav:active {
+            transform: scale(0.95);
         }
         .btn-nav.prev {
             background: transparent;
@@ -622,7 +651,11 @@
         .btn-nav.prev:hover {
             background: #d5c9be;
         }
+        .btn-nav.prev:active {
+            transform: scale(0.95);
+        }
 
+        /* ===== واکنش‌گرایی ===== */
         @media (max-width: 600px) {
             .book-page { padding: 25px 18px; }
             .progress-bar { margin: -25px -18px 20px -18px; padding: 10px 15px; }
@@ -630,11 +663,30 @@
             .chapter-title { font-size: 1.2rem; }
             .book-text { font-size: 0.95rem; line-height: 2.2; }
             .top-menu a { font-size: 0.65rem; padding: 4px 8px; }
+            
             .search-box { padding: 15px; }
-            .search-box .search-wrapper { flex-direction: column; }
-            .search-box input { width: 100%; min-width: unset; }
-            .search-box .btn-search,
-            .search-box .btn-clear { width: 48%; }
+            .search-box .search-wrapper { 
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .search-box input { 
+                width: 100%; 
+                min-width: unset;
+                flex: 1 1 100%;
+                order: 1;
+            }
+            .search-box .btn-search { 
+                flex: 1;
+                min-width: 100px;
+                order: 2;
+            }
+            .search-box .btn-clear { 
+                flex: 1;
+                min-width: 100px;
+                order: 3;
+            }
+            
             .characters-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
             .character-card { padding: 10px 12px; font-size: 0.85rem; }
             .timeline-section { padding: 20px 15px; }
@@ -648,6 +700,19 @@
             .share-buttons .btn-share { font-size: 0.75rem; padding: 6px 14px; }
             #searchResults { max-height: 200px; }
             .book-image img { max-width: 100%; }
+        }
+
+        @media (max-width: 400px) {
+            .search-box .btn-search,
+            .search-box .btn-clear {
+                font-size: 0.85rem;
+                padding: 10px 15px;
+                min-width: 80px;
+            }
+            .search-box input {
+                font-size: 0.85rem;
+                padding: 10px 15px;
+            }
         }
     </style>
 </head>
@@ -1091,27 +1156,49 @@
         const fullText = `"${quote}"\n— کتاب تاریخ جهان`;
         
         navigator.clipboard.writeText(fullText).then(() => {
-            const feedback = btn.parentElement.querySelector('.copy-feedback');
-            if (feedback) {
-                feedback.classList.add('show');
-                setTimeout(() => {
-                    feedback.classList.remove('show');
-                }, 3000);
+            // پیدا کردن یا ساختن المنت پیام
+            let feedback = btn.parentElement.querySelector('.copy-feedback');
+            if (!feedback) {
+                feedback = document.createElement('div');
+                feedback.className = 'copy-feedback';
+                btn.parentElement.appendChild(feedback);
             }
+            feedback.textContent = '✅ متن با موفقیت کپی شد!';
+            feedback.style.display = 'block';
+            feedback.style.color = '#4CAF50';
+            feedback.style.fontSize = '0.85rem';
+            feedback.style.marginTop = '6px';
+            feedback.style.fontWeight = '600';
+            feedback.style.animation = 'fadeIn 0.3s ease';
+            
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 3000);
         }).catch(() => {
+            // روش جایگزین برای مرورگرهای قدیمی
             const textarea = document.createElement('textarea');
             textarea.value = fullText;
             document.body.appendChild(textarea);
             textarea.select();
             document.execCommand('copy');
             document.body.removeChild(textarea);
-            const feedback = btn.parentElement.querySelector('.copy-feedback');
-            if (feedback) {
-                feedback.classList.add('show');
-                setTimeout(() => {
-                    feedback.classList.remove('show');
-                }, 3000);
+            
+            let feedback = btn.parentElement.querySelector('.copy-feedback');
+            if (!feedback) {
+                feedback = document.createElement('div');
+                feedback.className = 'copy-feedback';
+                btn.parentElement.appendChild(feedback);
             }
+            feedback.textContent = '✅ متن با موفقیت کپی شد!';
+            feedback.style.display = 'block';
+            feedback.style.color = '#4CAF50';
+            feedback.style.fontSize = '0.85rem';
+            feedback.style.marginTop = '6px';
+            feedback.style.fontWeight = '600';
+            
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 3000);
         });
     }
 
