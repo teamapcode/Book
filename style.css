@@ -449,3 +449,20 @@ body.dark-mode #themeToggle {
     background: #b8956a;
     color: #1a0f0a;
 }
+/* ===== حذف افکت آبی هنگام کلیک در موبایل ===== */
+* {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    outline: none !important;
+}
+
+a, button, input, textarea, .character-card, .btn-share, .btn-nav, .top-menu a, .btn-download, .btn-back {
+    -webkit-tap-highlight-color: transparent !important;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+input:focus, textarea:focus, button:focus, a:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
